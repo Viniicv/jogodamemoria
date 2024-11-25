@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Memória</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🧠 Jogo da Memória</h1>
+      <button id="start-game" class="btn-primary">Iniciar Jogo</button>
+      <button id="restart-game" class="btn-primary">Reiniciar Jogo</button>
+      <div class="stats">
+        <p><strong>Tempo:</strong> <span id="timer">0</span> segundos</p>
+      </div>
+      <div id="win-message">
+        <p>🎉 PARABÉNS, VOCÊ GANHOU!</p>
+        <div id="win-details">
+          <p><strong>Tentativas:</strong> <span id="win-attempts">0</span></p>
+          <p><strong>Tempo:</strong> <span id="win-time">0</span> segundos</p>
+        </div>
+      </div>
+    </header>
+    <main id="game-board" class="game-board"></main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
