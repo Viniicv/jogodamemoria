@@ -174,7 +174,24 @@ body {
       margin-top: 20px;
     }
   }
-  
+
+.btn-secondary {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #ff9800;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #e68900;
+}
+
   @media (max-width: 480px) {
     header h1 {
       font-size: 1.5rem;
