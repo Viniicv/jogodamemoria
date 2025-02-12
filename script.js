@@ -1,4 +1,3 @@
-// Array de respostas simuladas (20 participantes)
 let respostas = [
     ["Frequentemente", "Muito importante", 5, 2],
     ["Às vezes", "Importante", 3, 4],
@@ -23,7 +22,6 @@ let respostas = [
     ["Às vezes", "Importante", 3, 3]
 ];
 
-// Funções para cálculos estatísticos
 function calcularMedia(arr) {
     const soma = arr.reduce((acc, val) => acc + val, 0);
     return soma / arr.length;
@@ -40,32 +38,24 @@ function calcularMediana(arr) {
     const sorted = arr.sort((a, b) => a - b);
     const meio = Math.floor(sorted.length / 2);
     return sorted.length % 2 === 0 ? (sorted[meio - 1] + sorted[meio]) / 2 : sorted[meio];
-}
 
-// Função para exibir resultados e estatísticas
 function exibirResultados() {
     const tabelaResultados = document.getElementById('tabelaResultados').getElementsByTagName('tbody')[0];
-    const horasPraticandoEsportes = respostas.map(resposta => parseInt(resposta[2], 10)); // Garantir que seja número
-    const horasEsportesEletronicos = respostas.map(resposta => parseInt(resposta[3], 10)); // Garantir que seja número
+    const horasPraticandoEsportes = respostas.map(resposta => parseInt(resposta[2], 10)); 
+    const horasEsportesEletronicos = respostas.map(resposta => parseInt(resposta[3], 10));
 
-    // Limpando a tabela antes de adicionar novos dados
     tabelaResultados.innerHTML = '';
 
-    // Adicionando as respostas de cada participante à tabela
     respostas.forEach((resposta, index) => {
-        const frequencia = resposta[0];  // Frequência
-        const importancia = resposta[1];  // Importância
-        const horasEsportes = parseInt(resposta[2], 10); // Horas de Esportes (Coluna 2)
-        const horasEsportesEletronicos = parseInt(resposta[3], 10); // Horas de Esportes Eletrônicos (Coluna 3)
-
-        // Definindo o Limite Inferior e Superior
+        const frequencia = resposta[0];  
+        const importancia = resposta[1]; 
+        const horasEsportes = parseInt(resposta[2], 10); 
+        const horasEsportesEletronicos = parseInt(resposta[3], 10); 
         const limiteInferior = isNaN(horasEsportes) || isNaN(horasEsportesEletronicos) ? 0 : Math.min(horasEsportes, horasEsportesEletronicos);
         const limiteSuperior = isNaN(horasEsportes) || isNaN(horasEsportesEletronicos) ? 0 : Math.max(horasEsportes, horasEsportesEletronicos);
 
-        // Definindo a Classe com base nas horas praticadas de esportes vs. esportes eletrônicos
         let classe = '';
 
-        // Verificando se as condições para a classe "Nada" são atendidas
         if (frequencia === "Nunca" && importancia === "Nada importante" && horasEsportes === 0 && horasEsportesEletronicos === 0) {
             classe = "Nada";
         } else if (horasEsportes >= horasEsportesEletronicos) {
@@ -78,14 +68,13 @@ function exibirResultados() {
         row.insertCell(0).textContent = `Participante ${index + 1}`;
         row.insertCell(1).textContent = frequencia;
         row.insertCell(2).textContent = importancia;
-        row.insertCell(3).textContent = horasEsportes;  // Coluna de Horas de Esportes
-        row.insertCell(4).textContent = horasEsportesEletronicos; // Coluna de Horas Esportes Eletrônicos
+        row.insertCell(3).textContent = horasEsportes;  
+        row.insertCell(4).textContent = horasEsportesEletronicos;
         row.insertCell(5).textContent = limiteInferior;
         row.insertCell(6).textContent = limiteSuperior;
         row.insertCell(7).textContent = classe;
     });
 
-    // Calculando a média, moda e mediana para as perguntas quantitativas
     const mediaHorasPraticando = calcularMedia(horasPraticandoEsportes).toFixed(2);
     const modaHorasPraticando = calcularModa(horasPraticandoEsportes);
     const medianaHorasPraticando = calcularMediana(horasPraticandoEsportes).toFixed(2);
@@ -94,7 +83,6 @@ function exibirResultados() {
     const modaHorasEletronicos = calcularModa(horasEsportesEletronicos);
     const medianaHorasEletronicos = calcularMediana(horasEsportesEletronicos).toFixed(2);
 
-    // Exibindo as estatísticas
     const estatisticas = document.getElementById('estatisticas');
     estatisticas.innerHTML = `
         <strong>Horas praticando esportes:</strong><br>
@@ -105,7 +93,6 @@ function exibirResultados() {
     `;
 }
 
-// Exibir resultados ao clicar no botão
 document.getElementById('mostrarResultados').addEventListener('click', function() {
     const resultadosDiv = document.getElementById('resultados');
     resultadosDiv.style.display = resultadosDiv.style.display === 'none' ? 'block' : 'none';
