@@ -1,33 +1,87 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jogo da Memória</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário sobre Esporte</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>🧠 Jogo da Memória</h1>
-      <button id="start-game" class="btn-primary">Iniciar Jogo</button>
-      <button id="restart-game" class="btn-primary">Reiniciar Jogo</button>
-      <div class="stats">
-        <p><strong>Tempo:</strong> <span id="timer">0</span> segundos</p>
-      </div>
-      <div id="win-message">
-        <p>🎉 PARABÉNS, VOCÊ GANHOU!</p>
-        <div id="win-details">
-          <p><strong>Tentativas:</strong> <span id="win-attempts">0</span></p>
-          <p><strong>Tempo:</strong> <span id="win-time">0</span> segundos</p>
+
+    <div class="container">
+        <h1>Questionário: O Impacto do Esporte na Prática e no Entretenimento</h1>
+
+        <!-- Formulário -->
+        <form id="questionario">
+            <div class="question">
+                <label for="pergunta1">1. Com que frequência você pratica esportes?</label><br>
+                <select id="pergunta1">
+                    <option value="Nunca">Selecione</option>
+                    <option value="Nunca">Nunca</option>
+                    <option value="Raramente">Raramente</option>
+                    <option value="Às vezes">Às vezes</option>
+                    <option value="Frequentemente">Frequentemente</option>
+                    <option value="Sempre">Sempre</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <label for="pergunta3">2. Qual é a sua opinião sobre a importância dos esportes na vida cotidiana?</label><br>
+                <select id="pergunta3">
+                    <option value="Muito importante">Muito importante</option>
+                    <option value="Importante">Importante</option>
+                    <option value="Pouco importante">Pouco importante</option>
+                    <option value="Nada importante">Nada importante</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <label for="pergunta4">3. Como a popularização do esporte eletrônico pode afetar a saúde dos jovens?</label><br>
+                <input type="text" id="pergunta4" placeholder="">
+            </div>
+
+            <div class="question">
+                <label for="pergunta5">4. Quantas horas por semana você gasta praticando esportes (em média)?</label><br>
+                <input type="number" id="pergunta5" min="0" max="100" placeholder="Horas por semana">
+            </div>
+
+            <div class="question">
+                <label for="pergunta6">5. Quantas horas por semana você passa jogando esportes eletrônicos (em média)?</label><br>
+                <input type="number" id="pergunta6" min="0" max="100" placeholder="Horas por semana">
+            </div>
+
+            <div class="button-container">
+                <button type="button" id="enviar">Enviar</button>
+                <button type="button" id="mostrarResultados">Mostrar Resultados Anteriores</button>
+            </div>
+        </form>
+
+        <!-- Tabela de resultados -->
+        <div id="resultados" style="display:none;">
+            <h2>Resultados Simulados</h2>
+            <table id="tabelaResultados">
+                <thead>
+                    <tr>
+                        <th>Participante</th>
+                        <th>Frequência</th>
+                        <th>Importância</th>
+                        <th>Horas de Esporte</th>
+                        <th>Horas de Esportes Eletrônicos</th>
+                        <th>Limite Inferior</th>
+                        <th>Limite Superior</th>
+                        <th>Classe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- As respostas serão inseridas aqui dinamicamente -->
+                </tbody>
+            </table>
+            <div id="estatisticas">
+                <!-- Estatísticas serão exibidas aqui -->
+            </div>
         </div>
-        <a href="https://viniicv.github.io/jogoperguntas/" target="_blank" class="btn-secondary">Ir para o Jogo de Perguntas</a>
-      </div>
-      
-    </header>
-    <main id="game-board" class="game-board"></main>
-  </div>
-  <script src="script.js"></script>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
